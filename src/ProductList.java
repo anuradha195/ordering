@@ -1,9 +1,10 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ProductList {
-    private Product[] products;
+    private ArrayList<Product> products;
     private static String fileName = "products.csv";
 
     public ProductList() {
@@ -21,13 +22,12 @@ public class ProductList {
     }
 
     private void parseFile() throws FileNotFoundException {
-        products = new Product[6];
+        products = new ArrayList<Product>();
         File f = new File(fileName);
         Scanner fileScan = new Scanner(f);
 
         fileScan.nextLine(); // skips header
 
-        int index = 0;
         while (fileScan.hasNext()) {
             String row = fileScan.nextLine();
             String[] cols = row.split(";");
@@ -36,20 +36,18 @@ public class ProductList {
                 Food food = new Food();
                 parseLine(cols, food);
                 food.mass = Double.parseDouble(cols[4]);
-                products[index] = food;
+                products.add(food);
             } else if (cols[3].equals("d")) {
                 Drink drink = new Drink();
                 parseLine(cols, drink);
                 drink.volume = Double.parseDouble(cols[5]);
-                products[index] = drink;
+                products.add(drink);
             } else if (cols[3].equals("u")) {
                 Utensil utensil = new Utensil();
                 parseLine(cols, utensil);
                 utensil.count = Integer.parseInt(cols[6]);
-                products[index] = utensil;
+                products.add(utensil);
             }
-
-            index++;
         }
     }
 
