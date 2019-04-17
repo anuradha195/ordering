@@ -1,3 +1,8 @@
+import productTypes.Drink;
+import productTypes.Food;
+import productTypes.Product;
+import productTypes.Utensil;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -13,6 +18,10 @@ public class ProductList {
         } catch (FileNotFoundException e) {
             System.out.println("Could not read product file!");
         }
+    }
+
+    public Product getProduct(int index) {
+        return products.get(index);
     }
 
     public void printProducts() {
