@@ -1,3 +1,5 @@
+package payments;
+
 public class Cheque implements PaymentMethod {
     private double sum;
 

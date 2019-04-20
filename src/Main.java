@@ -1,3 +1,4 @@
+import payments.Cheque;
 import productTypes.Product;
 
 import java.util.Scanner;

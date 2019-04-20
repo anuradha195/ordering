@@ -1,3 +1,4 @@
+import payments.PaymentMethod;
 import productTypes.Product;
 
 import java.util.ArrayList;
