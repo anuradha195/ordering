@@ -1,4 +1,4 @@
-package productTypes;
+package products;
 
 public class Utensil extends Product {
     public int count;

@@ -1,4 +1,4 @@
-package productTypes;
+package products;
 
 public class Food extends Product {
     public double mass;

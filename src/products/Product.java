@@ -1,4 +1,4 @@
-package productTypes;
+package products;
 
 public abstract class Product {
     public String name;

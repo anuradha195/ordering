@@ -1,5 +1,7 @@
-import payments.GiftCard;
-import productTypes.Product;
+import io.Authenticator;
+import products.Product;
+import products.ProductList;
+import user.User;
 
 import java.util.Scanner;
 
@@ -7,30 +9,46 @@ public class Main {
 
     public static void main(String[] args) {
         ProductList list = new ProductList();
+
+        String username;
+        do {
+            username = Authenticator.authenticate();
+        } while (username == null);
+
+        User user = new User(username);
+        user.setUpPayments();
+
         Scanner sc = new Scanner(System.in);
-        Cart cart = new Cart();
+
+        System.out.println("Welcome!");
         String input = "";
-        // A, R, C
-        while (!input.equals("C")) {
-            System.out.println("Add or remove?");
+        while (!input.toLowerCase().startsWith("c")) {
+            System.out.println("Do you want to:");
+            System.out.println("(A) Add products");
+            System.out.println("(R) Remove products");
+            System.out.println("(C) Checkout");
+
             input = sc.next();
-            if (input.equals("A")) {
+            if (input.toLowerCase().startsWith("a")) {
                 System.out.println(list);
                 int index = sc.nextInt();
                 Product prod = list.getProduct(index - 1);
-                cart.addProduct(prod);
-            } else if (input.equals("R")) {
-                System.out.println(cart);
+                user.cart.addProduct(prod);
+            } else if (input.toLowerCase().startsWith("r")) {
+                System.out.println(user.cart);
                 int index = sc.nextInt();
-                cart.removeProduct(index);
+                user.cart.removeProduct(index - 1);
             }
         }
 
-        GiftCard giftCard;
-        do {
-            System.out.println("How much money do you have?");
-            double money = sc.nextDouble();
-            giftCard = new GiftCard(money);
-        } while (!cart.checkout(giftCard));
+        while (!user.checkout()) {
+            System.out.println("Purchase failed! Add payment methods?");
+            input = sc.next();
+            if (input.toLowerCase().startsWith("y")) {
+                user.setUpPayments();
+            }
+        }
+
+        System.out.println("Purchase successful!");
     }
 }

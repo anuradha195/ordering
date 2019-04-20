@@ -1,5 +1,7 @@
+package user;
+
 import payments.PaymentMethod;
-import productTypes.Product;
+import products.Product;
 
 import java.util.ArrayList;
 
@@ -32,8 +34,9 @@ public class Cart {
     @Override
     public String toString() {
         StringBuilder result = new StringBuilder();
-        for (Product prod : contents) {
-            result.append(prod + "\n");
+        for (int i = 0; i < contents.size(); i++) {
+            result.append((i + 1) + ". ");
+            result.append(contents.get(i) + "\n");
         }
         return result.toString();
     }

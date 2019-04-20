@@ -1,9 +1,9 @@
 package io;
 
-import productTypes.Drink;
-import productTypes.Food;
-import productTypes.Product;
-import productTypes.Utensil;
+import products.Drink;
+import products.Food;
+import products.Product;
+import products.Utensil;
 
 import java.io.File;
 import java.io.FileNotFoundException;

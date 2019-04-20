@@ -1,5 +1,7 @@
+package products;
+
 import io.ProductFile;
-import productTypes.Product;
+import products.Product;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;

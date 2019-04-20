@@ -1,4 +1,4 @@
-package productTypes;
+package products;
 
 public class Drink extends Product {
     public double volume;
