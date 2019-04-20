@@ -17,7 +17,7 @@ public class Main {
             if (input.equals("A")) {
                 list.printProducts();
                 int index = sc.nextInt();
-                Product prod = list.getProduct(index);
+                Product prod = list.getProduct(index - 1);
                 cart.addProduct(prod);
             } else if (input.equals("R")) {
                 System.out.println(cart);

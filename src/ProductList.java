@@ -25,8 +25,8 @@ public class ProductList {
     }
 
     public void printProducts() {
-        for (Product prod : products) {
-            System.out.println(prod);
+        for (int i = 0; i < products.size(); i++) {
+            System.out.println((i + 1) + ". " + products.get(i));
         }
     }
 
