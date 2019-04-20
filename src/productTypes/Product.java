@@ -6,11 +6,11 @@ public abstract class Product {
     public String description;
 
     protected String toString(String variable) {
-        String output = "";
-        output += name + ":" + "\n";
-        output += "  " + variable + price + " eur" + "\n";
-        output += "  " + description;
-        return output;
+        StringBuilder output = new StringBuilder();
+        output.append(name + ":" + "\n");
+        output.append("  " + variable + price + " eur" + "\n");
+        output.append("  " + description);
+        return output.toString();
     }
 
     public abstract String toString();

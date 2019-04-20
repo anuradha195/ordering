@@ -31,10 +31,10 @@ public class Cart {
 
     @Override
     public String toString() {
-        String result = "";
+        StringBuilder result = new StringBuilder();
         for (Product prod : contents) {
-            result += prod + "\n";
+            result.append(prod + "\n");
         }
-        return result;
+        return result.toString();
     }
 }
