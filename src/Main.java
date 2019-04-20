@@ -15,7 +15,7 @@ public class Main {
             System.out.println("Add or remove?");
             input = sc.next();
             if (input.equals("A")) {
-                list.printProducts();
+                System.out.println(list);
                 int index = sc.nextInt();
                 Product prod = list.getProduct(index - 1);
                 cart.addProduct(prod);
