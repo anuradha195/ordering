@@ -1,9 +1,9 @@
 package payments;
 
-public class Cheque implements PaymentMethod {
+public class GiftCard implements PaymentMethod {
     private double sum;
 
-    public Cheque(double sum) {
+    public GiftCard(double sum) {
         this.sum = sum;
     }
 
@@ -14,6 +14,6 @@ public class Cheque implements PaymentMethod {
 
     @Override
     public void purchase(double cost) {
-        sum = sum - cost;
+        sum = 0;
     }
 }

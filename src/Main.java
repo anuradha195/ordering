@@ -1,4 +1,4 @@
-import payments.Cheque;
+import payments.GiftCard;
 import productTypes.Product;
 
 import java.util.Scanner;
@@ -26,11 +26,11 @@ public class Main {
             }
         }
 
-        Cheque cheque;
+        GiftCard giftCard;
         do {
             System.out.println("How much money do you have?");
             double money = sc.nextDouble();
-            cheque = new Cheque(money);
-        } while (!cart.checkout(cheque));
+            giftCard = new GiftCard(money);
+        } while (!cart.checkout(giftCard));
     }
 }
